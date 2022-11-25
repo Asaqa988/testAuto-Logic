@@ -52,15 +52,13 @@ public class SmartBuy {
 			String msg = driver.findElement(By.xpath("//*[@id=\"addToCartLayer\"]/div[1]")).getText();
 
 			if (msg.contains("Sorry")) {
-				
+
 				driver.findElement(By.xpath("//*[@id=\"addToCartLayer\"]/a[1]")).click();
-				
-			}
-			else {
+
+			} else {
 				driver.findElement(By.xpath("//*[@id=\"addToCartLayer\"]/a[2]")).click();
 
 			}
-
 
 		}
 
@@ -70,9 +68,11 @@ public class SmartBuy {
 
 	public void we_need_to_check_the_correct_price() {
 
+		driver.navigate().back();
+
 		String the_single_item_price = driver
 				.findElement(By.xpath(
-						"//*[@id=\"newtab-Featured\"]/div/div[1]/div/div/div/div[3]/div/div[2]/div[2]/div/div/span[3]"))
+						"//*[@id=\"newtab-Featured\"]/div/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div/div/span[3]"))
 				.getText();
 
 		String[] the_updated_single_item_price = the_single_item_price.split("JOD");
@@ -89,13 +89,9 @@ public class SmartBuy {
 
 		String ActualWebsite = driver.getTitle();
 
-		// 3amdan bede ayaha tefshal
-
-//		softassertProcess.assertEquals(ActualWebsite, "Smart Buy | Homepage For Web", "ya rajol fe moshkleh");
-//
 //		softassertProcess.assertEquals(final_Price * numberOfTry, 4.348, "enta ma btfhm 3arabi");
 //
-//		softassertProcess.assertAll();
+		softassertProcess.assertAll();
 
 	}
 
